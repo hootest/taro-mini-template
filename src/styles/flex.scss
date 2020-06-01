@@ -1,0 +1,138 @@
+@import "./var.scss";
+
+.#{$ns}flex {
+  display: flex;
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &--center {
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 主轴方向 */
+  &--dir {
+    &__left {
+      flex-direction: row;
+    }
+
+    &__right {
+      flex-direction: row-reverse;
+      -webkit-box-pack: end;
+    }
+
+    &__top {
+      flex-direction: column;
+    }
+
+    &__bottom {
+      flex-direction: column-reverse;
+      -webkit-box-pack: end;
+    }
+  }
+
+  /* 主轴对齐方式 */
+  &--main {
+    &__left {
+      justify-content: flex-start;
+    }
+
+    &__right {
+      justify-content: flex-end;
+    }
+
+    &__justify {
+      justify-content: space-between;
+    }
+
+    &__center {
+      justify-content: center;
+    }
+
+    &__around {
+      justify-content: space-around;
+    }
+  }
+
+  /* 交叉轴对齐方式 */
+  &--cross {
+    &__top {
+      align-items: flex-start;
+    }
+
+    &__bottom {
+      align-items: flex-end;
+    }
+
+    &__center {
+      align-items: center;
+    }
+
+    &__baseline {
+      align-items: baseline;
+    }
+
+    &__stretch {
+      align-items: stretch;
+    }
+  }
+
+  /* 子元素换行方式 */
+  &--wrap {
+    &__wrap {
+      flex-wrap: wrap;
+    }
+
+    &__nowrap {
+      flex-wrap: nowrap;
+    }
+
+    &__reverse {
+      flex-wrap: wrap-reverse;
+    }
+  }
+
+  /* 子元素平分宽度高度 */
+  &-box {
+    &--w0 {
+      width: auto;
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+
+    &--w1 {
+      width: 0%;
+      height: auto;
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+
+    &--h0 {
+      height: auto;
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+
+    &--h1 {
+      width: auto;
+      height: 0%;
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+
+    @for $i from 0 through 10 {
+      &#{$i} {
+        flex-grow: $i;
+        flex-shrink: $i;
+      }
+    }
+  }
+}

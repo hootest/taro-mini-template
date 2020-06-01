@@ -1,0 +1,88 @@
+@import "./var.scss";
+
+@mixin half-common() {
+  content: "";
+  position: absolute;
+  transform-origin: center;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+@mixin half-base($color, $style) {
+  @include half-common();
+  left: -50%;
+  right: -50%;
+  top: -50%;
+  bottom: -50%;
+  border: 0 $style $color;
+  transform: scale(0.5);
+}
+
+@mixin half-direction($direction, $width) {
+  @if $direction==surround {
+    border-width: $width;
+  } @else if $direction==horizontal {
+    border-width: 0 $width;
+  } @else if $direction==vertical {
+    border-width: $width 0;
+  } @else {
+    border-#{$direction}-width: $width;
+  }
+}
+
+@mixin half-border(
+  $direction: surround,
+  $color: transparent,
+  $style: solid,
+  $width: 1px
+) {
+  position: relative;
+
+  &::after {
+    @include half-base($color, $style);
+    @include half-direction($direction, $width);
+  }
+}
+
+/* === relative border start === */
+@mixin half-base-relative($l, $r, $t, $b, $color, $style) {
+  @include half-common();
+  left: $l;
+  right: $r;
+  top: $t;
+  bottom: $b;
+  border: 0 $style $color;
+  transform: scale(0.5);
+}
+
+@mixin half-border-relative(
+  $l,
+  $r,
+  $t,
+  $b,
+  $direction: surround,
+  $color: transparent,
+  $style: solid,
+  $width: 1px
+) {
+  position: relative;
+
+  &::after {
+    @include half-base-relative($l, $r, $t, $b, $color, $style);
+    @include half-direction($direction, $width);
+  }
+}
+
+/* === relative border end === */
+
+.#{$ns}hborder {
+  @include half-border(surround, $halfBorderColor);
+
+  @each $direction, $shortdirection in (left, -l), (right, -r), (top, -t),
+    (bottom, -b), (horizontal, -h), (vertical, -v)
+  {
+    &#{$shortdirection} {
+      @include half-border($direction, $halfBorderColor);
+    }
+  }
+}

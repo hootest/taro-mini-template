@@ -1,0 +1,9 @@
+/* 改变主题变量，具体变量名可查看 taro-ui/dist/style/variables/default.scss 文件 */
+
+/* 引入 Taro UI 默认样式 */
+@import "~taro-ui/dist/style/index.scss";
+
+/* 引入全局样式 */
+@import "~@/styles/index.scss";
+
+/* 自定义样式 */

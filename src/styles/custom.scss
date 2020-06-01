@@ -1,0 +1,27 @@
+@import "./var.scss";
+
+/* font-size*/
+.#{$ns}fz {
+  @each $fz in $fontSizeNum {
+    &#{$fz} {
+      @if $fz==0 {
+        font-size: #{$fz * $ratio}px !important;
+      } @else {
+        font-size: #{$fz * $ratio}px;
+      }
+    }
+  }
+}
+
+/* border-radius */
+.#{$ns}br {
+  @each $br in $borderRadiusNum {
+    &#{$br} {
+      @if $br==0 {
+        border-radius: #{$br * $ratio}px !important;
+      } @else {
+        border-radius: #{$br * $ratio}px;
+      }
+    }
+  }
+}

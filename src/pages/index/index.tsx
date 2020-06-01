@@ -1,11 +1,9 @@
-import { ComponentClass } from 'react'
-import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Button, Text } from '@tarojs/components'
-import { connect } from '@tarojs/redux'
+import Taro, { Component, Config, ComponentClass } from "@tarojs/taro";
+import { View, Swiper, SwiperItem } from "@tarojs/components";
+import { connect } from "@tarojs/redux";
+import UserApi from "@/service/user";
 
-import { add, minus, asyncAdd } from '../../actions/counter'
-
-import './index.scss'
+import "./index.scss";
 
 // #region 书写注意
 //
@@ -17,74 +15,62 @@ import './index.scss'
 //
 // #endregion
 
-type PageStateProps = {
-  counter: {
-    num: number
-  }
-}
+type IStateProps = {};
+type IDispatchProps = {};
+type IOwnProps = {};
+type IProps = IStateProps & IDispatchProps & IOwnProps;
 
-type PageDispatchProps = {
-  add: () => void
-  dec: () => void
-  asyncAdd: () => any
-}
+type IState = {};
 
-type PageOwnProps = {}
+const mapStateToProps = (): IStateProps => ({});
 
-type PageState = {}
+const mapDispatchToProps = (): IDispatchProps => ({});
 
-type IProps = PageStateProps & PageDispatchProps & PageOwnProps
-
-interface Index {
-  props: IProps;
-}
-
-@connect(({ counter }) => ({
-  counter
-}), (dispatch) => ({
-  add () {
-    dispatch(add())
-  },
-  dec () {
-    dispatch(minus())
-  },
-  asyncAdd () {
-    dispatch(asyncAdd())
-  }
-}))
-class Index extends Component {
-
-    /**
+class Index extends Component<IProps, IState> {
+  /**
    * 指定config的类型声明为: Taro.Config
    *
    * 由于 typescript 对于 object 类型推导只能推出 Key 的基本类型
    * 对于像 navigationBarTextStyle: 'black' 这样的推导出的类型是 string
    * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
    */
-    config: Config = {
-    navigationBarTitleText: '首页'
+  config: Config = {
+    navigationBarTitleText: "首页",
+  };
+
+  componentDidMount() {
+    UserApi.info();
   }
 
-  componentWillReceiveProps (nextProps) {
-    console.log(this.props, nextProps)
-  }
+  componentWillUnmount() {}
 
-  componentWillUnmount () { }
+  componentDidShow() {}
 
-  componentDidShow () { }
+  componentDidHide() {}
 
-  componentDidHide () { }
-
-  render () {
+  render() {
     return (
       <View className='index'>
-        <Button className='add_btn' onClick={this.props.add}>+</Button>
-        <Button className='dec_btn' onClick={this.props.dec}>-</Button>
-        <Button className='dec_btn' onClick={this.props.asyncAdd}>async</Button>
-        <View><Text>{this.props.counter.num}</Text></View>
-        <View><Text>Hello, World</Text></View>
+        <Swiper
+          className='swiper'
+          indicatorDots
+          indicatorColor='#999'
+          indicatorActiveColor='#333'
+          autoplay
+          circular
+        >
+          <SwiperItem>
+            <View className='swiper-item'>1</View>
+          </SwiperItem>
+          <SwiperItem>
+            <View className='swiper-item'>2</View>
+          </SwiperItem>
+          <SwiperItem>
+            <View className='swiper-item'>3</View>
+          </SwiperItem>
+        </Swiper>
       </View>
-    )
+    );
   }
 }
 
@@ -95,4 +81,7 @@ class Index extends Component {
 //
 // #endregion
 
-export default Index as ComponentClass<PageOwnProps, PageState>
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Index) as ComponentClass<IOwnProps, IState>;

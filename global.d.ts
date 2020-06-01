@@ -9,10 +9,19 @@ declare module "*.scss";
 declare module "*.sass";
 declare module "*.styl";
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
 declare const process: {
   env: {
-    TARO_ENV: 'weapp' | 'swan' | 'alipay' | 'h5' | 'rn' | 'tt' | 'quickapp' | 'qq';
-    [key: string]: any;
+    TARO_ENV:
+      | "weapp"
+      | "swan"
+      | "alipay"
+      | "h5"
+      | "rn"
+      | "tt"
+      | "quickapp"
+      | "qq"
+    [key: string]: any
   }
-}
+};

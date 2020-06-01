@@ -1,0 +1,199 @@
+@import "./var.scss";
+
+/* 浮动 */
+.#{$ns}fl {
+  float: left;
+}
+
+.#{$ns}fr {
+  float: right;
+}
+
+.#{$ns}cf:after,
+.#{$ns}cf:before {
+  content: "";
+  display: table;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+
+.#{$ns}cf:after {
+  clear: both;
+}
+
+/* 转元素属性 */
+.#{$ns}df {
+  display: flex;
+}
+
+.#{$ns}db {
+  display: block;
+}
+
+.#{$ns}dib {
+  display: inline-block;
+}
+
+.#{$ns}di {
+  display: inline;
+}
+
+.#{$ns}dn,
+.#{$ns}hide {
+  display: none;
+}
+
+.#{$ns}pr {
+  position: relative;
+}
+
+.#{$ns}prz {
+  position: relative;
+  zoom: 1;
+}
+
+.#{$ns}oh {
+  overflow: hidden;
+}
+
+.#{$ns}w100 {
+  width: 100%;
+}
+
+.#{$ns}h100 {
+  height: 100%;
+}
+
+/* 字体 */
+
+.#{$ns}tal {
+  text-align: left;
+}
+
+.#{$ns}tac {
+  text-align: center;
+}
+
+.#{$ns}tar {
+  text-align: right;
+}
+
+.#{$ns}taj {
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+.#{$ns}fwn {
+  font-weight: normal;
+}
+
+.#{$ns}fwb {
+  font-weight: bold;
+}
+
+.#{$ns}ffa {
+  font-family: arial;
+}
+
+.#{$ns}ffyh {
+  font-family: "Microsoft YaHei";
+}
+
+.#{$ns}vam {
+  vertical-align: middle;
+}
+
+.#{$ns}wsn {
+  word-wrap: normal;
+  white-space: nowrap;
+}
+
+.#{$ns}pre {
+  overflow: hidden;
+  text-align: left;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.#{$ns}wwb {
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.#{$ns}ti {
+  overflow: hidden;
+  text-indent: -30000px;
+}
+
+.#{$ns}ti2 {
+  text-indent: 2em;
+}
+
+.#{$ns}lhn {
+  line-height: normal;
+}
+
+.#{$ns}tdu,
+.#{$ns}tdu:hover {
+  text-decoration: underline;
+}
+
+.#{$ns}tdlt {
+  text-decoration: line-through;
+}
+
+.#{$ns}tdn,
+.#{$ns}tdn:hover {
+  text-decoration: none;
+}
+
+.#{$ns}toe {
+  overflow: hidden;
+  word-wrap: normal;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.#{$ns}toe2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.#{$ns}csp {
+  cursor: pointer;
+}
+
+.#{$ns}csd {
+  cursor: default;
+}
+
+.#{$ns}csh {
+  cursor: help;
+}
+
+.#{$ns}csm {
+  cursor: move;
+}
+
+.#{$ns}usn {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.#{$ns}ust {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  -o-user-select: text;
+  user-select: text;
+}

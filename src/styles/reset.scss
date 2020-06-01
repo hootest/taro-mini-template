@@ -1,0 +1,45 @@
+page,
+view,
+scroll-view,
+swiper,
+movable-area,
+cover-view,
+text,
+icon,
+rich-text,
+progress,
+button,
+checkbox-group,
+checkbox,
+form,
+input,
+label,
+picker,
+picker-view,
+radio-group,
+slider,
+switch,
+textarea,
+navigator,
+audio,
+image,
+video,
+live-player,
+live-pusher,
+open-data,
+web-view {
+  box-sizing: border-box;
+}
+
+input {
+  border: 0;
+
+  &::-webkit-input-placeholder {
+    color: #999999;
+  }
+}
+
+button {
+  appearance: none;
+  outline: none;
+}

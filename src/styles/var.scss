@@ -1,0 +1,15 @@
+$ns: "";
+
+$ratio: 2;
+
+/* fz{num} */
+$fontSizeNum: (10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 24, 28, 32);
+
+/* pd{num} md{num} */
+$spaceNum: (0, 3, 5, 10, 13, 15, 20, 30, 40);
+
+/* br{num} */
+$borderRadiusNum: (0, 3, 5, 10);
+
+/* hborder{-direction} */
+$halfBorderColor: #dddddd;

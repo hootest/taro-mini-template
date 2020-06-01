@@ -1,0 +1,28 @@
+/*
+=============================================================================
+Margin & Padding
+=============================================================================
+*/
+@import "./var.scss";
+
+@each $type, $shorttype in (padding, pd), (margin, mg) {
+  .#{$ns}#{$shorttype} {
+    @each $space in $spaceNum {
+      &#{$space} {
+        #{$type}: #{$space * $ratio}px;
+      }
+
+      @each $direction, $shortdirection in (left, l), (right, -r), (top, -t),
+        (bottom, -b), (left, -h), (right, -h), (top, -v), (bottom, -v)
+      {
+        &#{$shortdirection}#{$space} {
+          @if $space==0 {
+            #{$type}-#{$direction}: #{$space * $ratio}px !important;
+          } @else {
+            #{$type}-#{$direction}: #{$space * $ratio}px;
+          }
+        }
+      }
+    }
+  }
+}
